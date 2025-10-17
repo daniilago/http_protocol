@@ -1,9 +1,9 @@
-# Ignore everything inside client/files except README.md
-client/files/**
-!client/files/**/README.md
+# Ignore everything in client/files and server/files
+client/files/*
+server/files/*
 
-# Ignore everything inside server/files except README.md
-server/files/**
+# But do not ignore README.md in any subfolder
+!client/files/**/README.md
 !server/files/**/README.md
 
 # Logs
