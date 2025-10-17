@@ -19,8 +19,8 @@
 *.swp
 *.bak
 
-# Generated test/output files
-**/files/
+# Generated output files
+/client/files/
 
 # Logs
 *.log
