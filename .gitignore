@@ -1,10 +1,3 @@
-# Build artifacts
-*.o
-
-# Executables (compiled binaries)
-**client
-**server
-
 # Ignore all files inside client/files and subfolders, except README.md
 client/files/**/*
 !client/files/**/README.md
