@@ -1,23 +1,9 @@
 # Build artifacts
 *.o
-*.out
-*.exe
-*.elf
 
 # Executables (compiled binaries)
 **client
 **server
-
-# Dependency and build files
-*.d
-*.a
-*.so
-*.so.*
-
-# Temporary or backup files
-*~
-*.swp
-*.bak
 
 # Ignore files inside client/files and subfolders
 client/files/*
@@ -35,7 +21,3 @@ server/files/**/*
 
 # Logs
 *.log
-
-# System files
-.DS_Store
-Thumbs.db
