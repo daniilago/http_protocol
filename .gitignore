@@ -1,10 +1,49 @@
-# Ignore everything in client/files and server/files
-client/files/*
-server/files/*
+# Ignore everything inside client/files except README.md
+client/files/archives/*
+!client/files/archives/README.md
 
-# But do not ignore README.md in any subfolder
-!client/files/**/README.md
-!server/files/**/README.md
+client/files/code/*
+!client/files/code/README.md
 
-# Logs
-*.log
+client/files/media/*
+!client/files/media/README.md
+
+client/files/music/*
+!client/files/music/README.md
+
+client/files/others/*
+!client/files/others/README.md
+
+client/files/pictures/*
+!client/files/pictures/README.md
+
+client/files/texts/*
+!client/files/texts/README.md
+
+client/files/videos/*
+!client/files/videos/README.md
+
+# Ignore everything inside server/files except README.md
+server/files/archives/*
+!server/files/archives/README.md
+
+server/files/code/*
+!server/files/code/README.md
+
+server/files/media/*
+!server/files/media/README.md
+
+server/files/music/*
+!server/files/music/README.md
+
+server/files/others/*
+!server/files/others/README.md
+
+server/files/pictures/*
+!server/files/pictures/README.md
+
+server/files/texts/*
+!server/files/texts/README.md
+
+server/files/videos/*
+!server/files/videos/README.md
