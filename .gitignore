@@ -6,18 +6,14 @@
 **server
 
 # Ignore files inside client/files and subfolders
-client/files/*
 client/files/**/*
 
 # Ignore files inside server/files and subfolders
-server/files/*
 server/files/**/*
 
 # Keep the folders themselves
-!client/files/.gitkeep
-!client/files/**/.gitkeep
-!server/files/.gitkeep
-!server/files/**/.gitkeep
+!client/files/**/README.md
+!server/files/**/README.md
 
 # Logs
 *.log
