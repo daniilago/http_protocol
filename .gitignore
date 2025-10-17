@@ -20,9 +20,9 @@
 *.bak
 
 # Generated output files
-files/**/*
-!files/
-!files/**/
+**/files/**/*
+!**/files/
+!**/files/**/
 
 # Logs
 *.log
