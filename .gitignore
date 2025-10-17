@@ -14,10 +14,10 @@ server/files/*
 server/files/**/*
 
 # Keep the folders themselves
-!client/files/
-!client/files/**/
-!server/files/
-!server/files/**/
+!client/files/.gitkeep
+!client/files/**/.gitkeep
+!server/files/.gitkeep
+!server/files/**/.gitkeep
 
 # Logs
 *.log
