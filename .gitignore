@@ -19,10 +19,19 @@
 *.swp
 *.bak
 
-# Generated output files
-**/files/**/*
-!**/files/
-!**/files/**/
+# Ignore files inside client/files and subfolders
+client/files/*
+client/files/**/*
+
+# Ignore files inside server/files and subfolders
+server/files/*
+server/files/**/*
+
+# Keep the folders themselves
+!client/files/
+!client/files/**/
+!server/files/
+!server/files/**/
 
 # Logs
 *.log
