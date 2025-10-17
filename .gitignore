@@ -20,7 +20,7 @@
 *.bak
 
 # Generated test/output files
-**files/
+**/files/
 
 # Logs
 *.log
