@@ -1,55 +1,30 @@
-# Prerequisites
-*.d
-
-# Object files
+# Build artifacts
 *.o
-*.ko
-*.obj
+*.out
+*.exe
 *.elf
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Executables (compiled binaries)
+**client
+**server
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
+# Dependency and build files
+*.d
 *.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
 *.so
 *.so.*
-*.dylib
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Temporary or backup files
+*~
+*.swp
+*.bak
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# Generated test/output files
+**files/
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Logs
+*.log
 
-# debug information files
-*.dwo
+# System files
+.DS_Store
+Thumbs.db
