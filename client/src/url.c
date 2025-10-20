@@ -61,9 +61,9 @@ char *get_filename_from_path(const char *path){
         return strdup(filename + 1); // returns part after the '/'
     }
 
-    // Otherwise, no filename provided — stop the program
-    fprintf(stderr, "Error: No file specified in URL path\n");
-    exit(EXIT_FAILURE);
+    // Se não houver nome de arquivo → usar "index.html"
+    const char *default_file = "index.html";
+    return strdup(default_file);
 }
 
 char *get_extension_from_filename(const char *filename){
