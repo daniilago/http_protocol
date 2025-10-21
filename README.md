@@ -12,16 +12,16 @@ This project demonstrates how to:
 ## ✨ Features
 
 ### 🖥️ Client
-- Parse HTTP URLs (http://host:port/path/file.ext).
+- Parse HTTP URLs (`http://host:port/path/file.ext`).
 - Download files and save them in a structured folder system:
-  - music/ → .mp3, .wav, .flac
-  - pictures/ → .jpg, .png, .gif, etc.
-  - videos/ → .mp4, .mkv, .avi, etc.
-  - texts/ → .txt, .md, .csv, .log
-  - archives/ → .zip, .tar, .rar, .gz
-  - code/ → .c, .cpp, .h, .py, .js, .java
-  - media/ → .webm, .ogg
-  - others/ → unknown file types
+  - `music/` → `.mp3`, `.wav`, `.flac`
+  - `pictures/` → `.jpg`, `.png`, `.gif`, etc.
+  - `videos/` → `.mp4`, `.mkv`, `.avi`, etc.
+  - `texts/` → `.txt`, `.md`, `.csv`, `.log`
+  - `archives/` → `.zip`, `.tar`, `.rar`, `.gz`
+  - `code/` → `.c`, `.cpp`, `.h`, `.py`, `.js`, `.java`
+  - `media/` → `.webm`, `.ogg`
+  - `others/` → unknown file types
 - Handles HTTP responses properly:
   - Prints the HTTP header received from the server in the terminal.
   - Only saves the file if the response is HTTP 200 OK.
