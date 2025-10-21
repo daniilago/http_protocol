@@ -1,3 +1,4 @@
+#include <signal.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <netinet/in.h>
@@ -48,6 +49,8 @@ void send_file(int client_fd, const char *filepath) {
 }
 
 int main() {
+    signal(SIGPIPE, SIG_IGN);
+
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (server_fd == -1) {
         perror("socket");
