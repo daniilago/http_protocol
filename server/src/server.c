@@ -47,7 +47,6 @@ void send_file(int client_fd, const char *filepath) {
     fclose(fp);
 }
 
-// Main server function
 int main() {
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (server_fd == -1) {
@@ -86,6 +85,9 @@ int main() {
             perror("accept");
             continue;
         }
+
+        // Generate updated index.html files
+        system("python3 generate_indexes.py");
 
         // Receive HTTP request
         char buffer[BUF_SIZE];

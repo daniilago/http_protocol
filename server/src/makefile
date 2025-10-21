@@ -1,10 +1,10 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -I../include
+CFLAGS = -Wall -Wextra
 
 # Source and target
-SRC = client.c url.c file_utils.c
-TARGET = client
+SRC = server.c
+TARGET = server
 
 # Default rule — build the program
 all: $(TARGET)

@@ -35,7 +35,8 @@ int main(int argc, char *argv[]){
     int status = getaddrinfo(host, port, &hints, &res);
     if(status != 0){
         fprintf(stderr, "getaddrinfo error: %s\n", gai_strerror(status));
-        goto cleanup;
+        free(host); free(port); free(path);
+        return 1;
     }
 
     // Create socket and connect
@@ -50,12 +51,14 @@ int main(int argc, char *argv[]){
         }
         break; // Connection succeeded
     }
+
+    freeaddrinfo(res); // Free DNS results
+
     if(!p){
         fprintf(stderr, "Failed to connect to any address\n");
-        freeaddrinfo(res);
-        goto cleanup;
+        free(host); free(port); free(path);
+        return 1;
     }
-    freeaddrinfo(res); // Free DNS results
 
     // Construct HTTP GET request
     char request[1024];
@@ -68,14 +71,16 @@ int main(int argc, char *argv[]){
     if(req_len < 0 || (size_t)req_len >= sizeof(request)){
         fprintf(stderr, "Request too long\n");
         close(sockfd);
-        goto cleanup;
+        free(host); free(port); free(path);
+        return 1;
     }
 
     // Send request
     if(send(sockfd, request, req_len, 0) == -1){
         perror("send failed");
         close(sockfd);
-        goto cleanup;
+        free(host); free(port); free(path);
+        return 1;
     }
 
     // Create "files" directory (ignore if it already exists)
@@ -91,26 +96,48 @@ int main(int argc, char *argv[]){
     char filepath[512];
     snprintf(filepath, sizeof(filepath), "../%s/%s", get_directory_by_extension(extension), filename);
 
-    // Open file
-    FILE *fp = fopen(filepath, "wb");
-    if (!fp) {
-        perror("Error creating output file");
-        close(sockfd);
-        goto cleanup;
-    }
-
     // Receive HTTP response data
     char buffer[4096];
     ssize_t bytes_received;
     int header_skipped = 0;
     char *body_start;
 
+    int save_file = 1;
+    FILE *fp = NULL;
+
     while((bytes_received = recv(sockfd, buffer, sizeof(buffer) - 1, 0)) > 0){
+        buffer[bytes_received] = '\0'; // ensure null-terminated string
+
         // Skip HTTP header (everything before "\r\n\r\n")
         if (!header_skipped) {
             body_start = strstr(buffer, "\r\n\r\n");
+
             if (body_start) {
+                // Separate header and body
+                *body_start = '\0';  // temporarily end string at header's end
+
+                printf("\n===== SERVER RESPONSE HEADER =====\n");
+                printf("%s", buffer);
+                printf("\n===================================\n\n");
+
+                if (strncmp(buffer, "HTTP/1.1 200", 12) == 0) {
+                    fp = fopen(filepath, "wb");
+
+                    if (!fp) {
+                        perror("Error creating output file");
+                        close(sockfd);
+                        free(host); free(port); free(path);
+                        free(filename); free(extension);
+                        return 1;
+                    }
+                }else{
+                    // Not 200 OK → do not save the file, stop reading body
+                    save_file = 0;
+                    break;
+                }
+
                 body_start += 4;
+
                 fwrite(body_start, 1, bytes_received - (body_start - buffer), fp);
                 header_skipped = 1;
             }
@@ -119,21 +146,18 @@ int main(int argc, char *argv[]){
         }
     }
     if(bytes_received == -1){
-        perror("recv failed");
+        perror("Recv failed");
     }
 
-    printf("File saved to: %s\n", filepath);
+    if(save_file) printf("File saved to: %s\n", filepath);
 
-    // Free memory from parse_url
-    cleanup:
-        if (fp) free(fp);
-        if (filename) free(filename);
-        if (extension) free(extension);
-        if (host) free(host);
-        if (port) free(port);
-        if (path) free(path);
+
+    // Free memory
+    if (fp) fclose(fp);
+    free(host); free(port); free(path);
+    free(filename); free(extension);
 
     close(sockfd);
 
-    return EXIT_SUCCESS;
+    return 0;
 }
