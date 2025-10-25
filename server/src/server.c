@@ -53,7 +53,7 @@ int main() {
 
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (server_fd == -1) {
-        perror("socket");
+        perror("error building socket");
         exit(EXIT_FAILURE);
     }
 
@@ -111,13 +111,13 @@ int main() {
                ntohs(client_addr.sin_port),
                method, path);
 
-        if (strcmp(method, "GET") != 0) {
-            // Only GET method is supported
-            const char *not_allowed = "HTTP/1.1 405 Method Not Allowed\r\nContent-Length: 0\r\nConnection: close\r\n\r\n";
-            send(client_fd, not_allowed, strlen(not_allowed), 0);
-            close(client_fd);
-            continue;
-        }
+        // if (strcmp(method, "GET") != 0) {
+        //     // Only GET method is supported
+        //     const char *not_allowed = "HTTP/1.1 405 Method Not Allowed\r\nContent-Length: 0\r\nConnection: close\r\n\r\n";
+        //     send(client_fd, not_allowed, strlen(not_allowed), 0);
+        //     close(client_fd);
+        //     continue;
+        // }
 
         // Build real file path
         char filepath[512];

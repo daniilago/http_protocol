@@ -61,7 +61,7 @@ char *get_filename_from_path(const char *path){
         return strdup(filename + 1); // returns part after the '/'
     }
 
-    // Se não houver nome de arquivo → usar "index.html"
+    // If there is no file name → use "index.html"
     const char *default_file = "index.html";
     return strdup(default_file);
 }

@@ -53,8 +53,6 @@ def generate_folder_index(folder_path):
     with open(index_path, "w") as f:
         f.write(html)
 
-    print(f"✅ Generated {index_path}")
-
 
 def generate_main_index():
     """Generate the main index.html inside 'files' listing subfolders."""
@@ -63,10 +61,6 @@ def generate_main_index():
         for name in os.listdir(BASE_DIR)
         if os.path.isdir(os.path.join(BASE_DIR, name))
     ]
-
-    if not subfolders:
-        print("⚠️ No subfolders found inside 'files/'.")
-        return
 
     links = "\n".join(
         [
@@ -84,8 +78,6 @@ def generate_main_index():
     index_path = os.path.join(BASE_DIR, "index.html")
     with open(index_path, "w") as f:
         f.write(html)
-
-    print(f"✅ Generated {index_path}")
 
 
 def main():

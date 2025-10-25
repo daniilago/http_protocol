@@ -4,6 +4,10 @@
 # Ignore index.html inside server/files
 server/files/index.html
 
+#Ignore output
+client/src/client
+server/src/server
+
 # Ignore everything inside client/files except README.md
 client/files/archives/*
 !client/files/archives/README.md
