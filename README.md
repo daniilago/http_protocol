@@ -98,7 +98,7 @@ make
 
 ---
 
-# How to Run
+## How to Run
 ```bash
 # Start the server
 ./server
