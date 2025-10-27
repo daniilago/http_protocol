@@ -1,6 +1,3 @@
-# Ignore .gitignore
-.gitignore
-
 # Ignore index.html inside server/files
 server/files/index.html
 
