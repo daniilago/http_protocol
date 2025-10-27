@@ -1,17 +1,17 @@
-# 🌐 HTTP Protocol Project
+# HTTP Protocol Project
 
 A simple **HTTP Client and Server** implemented in **C**.
 This project demonstrates how to:
 
-- 📥 Build a basic HTTP client to download files from URLs.
-- 📤 Build a basic HTTP server to serve files from directories.
-- 📂 Organize downloaded files by type in specific folders.
+- Build a basic HTTP client to download files from URLs.
+- Build a basic HTTP server to serve files from directories.
+- Organize downloaded files by type in specific folders.
 
 ---
 
-## ✨ Features
+## Features
 
-### 🖥️ Client
+### Client
 - Parse HTTP URLs (`http://host:port/path/file.ext`).
 - Download files and save them in a structured folder system:
   - `music/` → `.mp3`, `.wav`, `.flac`
@@ -29,7 +29,7 @@ This project demonstrates how to:
 - Supports both IPv4 and IPv6 addresses.
 - Properly handles connection errors, invalid URLs, and socket failures.
 
-### 🖧 Server
+### Server
 - Serves files over HTTP from the files/ directory.
 - Supports both direct file requests and directory requests:
   - If a URL points to a folder, serves index.html if it exists.
@@ -42,7 +42,7 @@ This project demonstrates how to:
 
 ---
 
-## 🗂️ Folder Structure
+## Folder Structure
 ```
 project-root/
 ├── client/
@@ -85,7 +85,7 @@ project-root/
 
 ---
 
-## 🛠️ How to Compile
+## How to Compile
 ```bash
 # Compile the client
 cd client/src
@@ -98,7 +98,7 @@ make
 
 ---
 
-# ▶️ How to Run
+# How to Run
 ```bash
 # Start the server
 ./server
@@ -111,5 +111,5 @@ Downloaded files will be saved in the appropriate folder under client/files/.
 
 ---
 
-## 📝 License
+## License
 This project is open-source under the MIT License.
