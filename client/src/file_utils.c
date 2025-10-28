@@ -7,8 +7,8 @@ void create_directory(){
     // Array with all folders to create
     const char *dirs[] = {
         "../files",
-        "../files/music",
-        "../files/pictures",
+        "../files/audio",
+        "../files/images",
         "../files/texts",
         "../files/videos",
         "../files/media",
@@ -20,10 +20,19 @@ void create_directory(){
     // Number of folders
     size_t n_dirs = sizeof(dirs) / sizeof(dirs[0]);
 
-    // Create each folder
+    // Create each folder and README.md
     for (size_t i = 0; i < n_dirs; i++) {
         char cmd[256];
+
+        const char *folder_name = strrchr(dirs[i], '/');
+        folder_name = folder_name ? folder_name + 1 : dirs[i];
+
         snprintf(cmd, sizeof(cmd), "mkdir -p %s", dirs[i]);
+        system(cmd);
+
+        snprintf(cmd, sizeof(cmd),
+            "echo 'Folder to store %s files' > %s/README.md",
+            folder_name, dirs[i]);
         system(cmd);
     }
 }
@@ -31,12 +40,12 @@ void create_directory(){
 const char* get_directory_by_extension(const char *ext){
     // Audio files
     if (strcmp(ext, "mp3") == 0 || strcmp(ext, "wav") == 0 || strcmp(ext, "flac") == 0)
-        return "files/music";
+        return "files/audio";
 
     // Image files
     if (strcmp(ext, "jpg") == 0 || strcmp(ext, "jpeg") == 0 || strcmp(ext, "png") == 0 ||
         strcmp(ext, "gif") == 0 || strcmp(ext, "bmp") == 0 || strcmp(ext, "webp") == 0)
-        return "files/pictures";
+        return "files/images";
 
     // Text / document files
     if (strcmp(ext, "txt") == 0 || strcmp(ext, "md") == 0 || strcmp(ext, "csv") == 0 ||
@@ -59,7 +68,8 @@ const char* get_directory_by_extension(const char *ext){
 
     // Code / scripts
     if (strcmp(ext, "c") == 0 || strcmp(ext, "cpp") == 0 || strcmp(ext, "h") == 0 ||
-        strcmp(ext, "py") == 0 || strcmp(ext, "js") == 0 || strcmp(ext, "java") == 0)
+        strcmp(ext, "py") == 0 || strcmp(ext, "js") == 0 || strcmp(ext, "java") == 0 ||
+        strcmp(ext, "html") == 0 || strcmp(ext, "css") == 0)
         return "files/code";
 
     // Default: unknown files

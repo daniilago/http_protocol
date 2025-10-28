@@ -8,8 +8,8 @@
 #include <unistd.h> // close, read, write, fork...
 #include <arpa/inet.h>// inet_pton, inet_ntop
 
-#include "../include/url.h"
-#include "../include/file_utils.h"
+#include "url.h"
+#include "file_utils.h"
 
 int main(int argc, char *argv[]){
     if(argc != 2){

@@ -1,9 +1,9 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -I../include
 
 # Source and target
-SRC = server.c
+SRC = server.c mime.c
 TARGET = server
 
 # Default rule — build the program

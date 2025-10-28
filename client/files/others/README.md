@@ -1,1 +1,1 @@
-Folder to store other files
+Folder to store others files

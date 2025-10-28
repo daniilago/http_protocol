@@ -1,1 +1,1 @@
-Folder to store text files
+Folder to store texts files

@@ -10,6 +10,8 @@
 #include <dirent.h>
 #include <sys/stat.h>
 
+#include "mime.h"
+
 #define PORT 8080
 #define BACKLOG 10
 #define BUF_SIZE 4096
@@ -31,11 +33,13 @@ void send_file(int client_fd, const char *filepath) {
 
     // Build HTTP header
     char header[256];
+    const char* content_type = get_content_type(filepath);
     int header_len = snprintf(header, sizeof(header),
                               "HTTP/1.1 200 OK\r\n"
                               "Content-Length: %ld\r\n"
+                              "Content-Type: %s\r\n"
                               "Connection: close\r\n\r\n",
-                              file_size);
+                              file_size, content_type);
     send(client_fd, header, header_len, 0);
 
     // Send file in chunks

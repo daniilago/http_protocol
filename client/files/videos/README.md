@@ -1,1 +1,1 @@
-Folder to store video files
+Folder to store videos files
