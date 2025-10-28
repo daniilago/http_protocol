@@ -14,8 +14,8 @@ This project demonstrates how to:
 ### Client
 - Parse HTTP URLs (`http://host:port/path/file.ext`).
 - Download files and save them in a structured folder system:
-  - `music/` → `.mp3`, `.wav`, `.flac`
-  - `pictures/` → `.jpg`, `.png`, `.gif`, etc.
+  - `audios/` → `.mp3`, `.wav`, `.flac`
+  - `images/` → `.jpg`, `.png`, `.gif`, etc.
   - `videos/` → `.mp4`, `.mkv`, `.avi`, etc.
   - `texts/` → `.txt`, `.md`, `.csv`, `.log`
   - `archives/` → `.zip`, `.tar`, `.rar`, `.gz`
@@ -47,8 +47,8 @@ This project demonstrates how to:
 project-root/
 ├── client/
 │   ├── files/
-│   │   ├── music/README.md
-│   │   ├── pictures/README.md
+│   │   ├── audio/README.md
+│   │   ├── images/README.md
 │   │   ├── texts/README.md
 │   │   ├── videos/README.md
 │   │   ├── archives/README.md
@@ -66,17 +66,20 @@ project-root/
 │
 ├── server/
 │   ├── files/
-│   │   ├── music/README.md
-│   │   ├── pictures/README.md
+│   │   ├── audio/README.md
+│   │   ├── images/README.md
 │   │   ├── texts/README.md
 │   │   ├── videos/README.md
 │   │   ├── archives/README.md
 │   │   ├── code/README.md
 │   │   ├── media/README.md
 │   │   └── others/README.md
+│   ├── include/
+│   │   └── mime.h
 │   └── src/
 │       ├── generate_indexes.py
 │       ├── makefile
+│       ├── mime.c
 │       └── server.c
 ├── .gitignore
 ├── LICENSE
