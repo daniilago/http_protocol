@@ -15,14 +15,14 @@ client/files/code/*
 client/files/media/*
 !client/files/media/README.md
 
-client/files/music/*
-!client/files/music/README.md
+client/files/audio/*
+!client/files/audio/README.md
 
 client/files/others/*
 !client/files/others/README.md
 
-client/files/pictures/*
-!client/files/pictures/README.md
+client/files/images/*
+!client/files/images/README.md
 
 client/files/texts/*
 !client/files/texts/README.md
@@ -40,14 +40,14 @@ server/files/code/*
 server/files/media/*
 !server/files/media/README.md
 
-server/files/music/*
-!server/files/music/README.md
+server/files/audio/*
+!server/files/audio/README.md
 
 server/files/others/*
 !server/files/others/README.md
 
-server/files/pictures/*
-!server/files/pictures/README.md
+server/files/images/*
+!server/files/images/README.md
 
 server/files/texts/*
 !server/files/texts/README.md
