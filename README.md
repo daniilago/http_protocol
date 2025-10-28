@@ -14,7 +14,7 @@ This project demonstrates how to:
 ### Client
 - Parse HTTP URLs (`http://host:port/path/file.ext`).
 - Download files and save them in a structured folder system:
-  - `audios/` → `.mp3`, `.wav`, `.flac`
+  - `audio/` → `.mp3`, `.wav`, `.flac`
   - `images/` → `.jpg`, `.png`, `.gif`, etc.
   - `videos/` → `.mp4`, `.mkv`, `.avi`, etc.
   - `texts/` → `.txt`, `.md`, `.csv`, `.log`
