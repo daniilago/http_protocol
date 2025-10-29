@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -I../include
+CFLAGS = -Wall -Wextra -g -I../include
 
 # Source and target
 SRC = server.c mime.c

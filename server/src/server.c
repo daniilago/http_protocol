@@ -14,7 +14,7 @@
 
 #define PORT 8080
 #define BACKLOG 10
-#define BUF_SIZE 4096
+#define BUF_SIZE 65536
 
 // Function to send a file to the client
 void send_file(int client_fd, const char *filepath) {
@@ -28,7 +28,7 @@ void send_file(int client_fd, const char *filepath) {
 
     // Get file size
     fseek(fp, 0, SEEK_END);
-    long file_size = ftell(fp);
+    size_t file_size = ftell(fp);
     fseek(fp, 0, SEEK_SET);
 
     // Build HTTP header
